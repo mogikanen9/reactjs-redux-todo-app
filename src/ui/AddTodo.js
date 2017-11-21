@@ -12,6 +12,7 @@ class AddTodo extends Component{
 
     handleSubmit(e){
         e.preventDefault()        
+
         let inputValue = this.input.value
         console.log('inputValue->',inputValue)
 
@@ -34,5 +35,4 @@ class AddTodo extends Component{
 }
 
 AddTodo = connect()(AddTodo)
-
 export default AddTodo
