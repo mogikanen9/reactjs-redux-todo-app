@@ -1,4 +1,4 @@
-import React,{ Component } from 'react'
+import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 
@@ -7,17 +7,22 @@ import VisibleTodoList from './containers/VisibleTodoList'
 import TodoFilter from './ui/TodoFilter'
 
 export default class App extends Component {
-  render () {
+  render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div className="App-intro">
-          <AddTodo/>
-          <VisibleTodoList/>
-          <TodoFilter />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4"></div>
+          <div className="col-md-4"><h3>Welcome to TodoApp</h3></div>
+          <div className="col-md-4"></div>
+        </div>
+        <div className="row">
+          <div className="col-md-4"></div>
+          <div className="col-md-4">
+            <AddTodo />
+            <VisibleTodoList />
+            <TodoFilter />
+          </div>
+          <div className="col-md-4"></div>
         </div>
       </div>
     )
