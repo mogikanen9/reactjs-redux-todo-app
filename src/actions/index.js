@@ -1,4 +1,5 @@
-let nextTodoId = 0
+import {} from '../constants/ActionTypes'
+let nextTodoId = 1
 
 export const addTodo = newItem => {
   return {
@@ -10,7 +11,7 @@ export const addTodo = newItem => {
 
 export const toggleTodo = id => {
   return {
-    type: 'TOGGLE_TODO',
+    type: 'UPDATE_TODO',
     id
   }
 }

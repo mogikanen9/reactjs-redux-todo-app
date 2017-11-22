@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { addTodo } from '../actions/index'
 import { connect } from 'react-redux'
+import { Button, FormGroup, FormControl,ControlLabel, Form } from 'react-bootstrap'
 
 class AddTodo extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleSubmit (e) {
+  handleSubmit(e) {
     e.preventDefault()
 
     let inputValue = this.input.value
@@ -20,13 +21,16 @@ class AddTodo extends Component {
     return true
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" maxLength="30" ref={(input) => this.input = input} />
-          <button type="submit">Add Todo</button>
-        </form>
+        <Form onSubmit={this.handleSubmit} inline>
+          <FormGroup>
+              <ControlLabel>ToDo:</ControlLabel>
+              <FormControl type="text" maxLength="30" inputRef={(input) => this.input = input}/>                                        
+          </FormGroup>
+          <Button bsStyle="primary" type="submit">Add Todo</Button>
+        </Form>
       </div>
     )
   }
