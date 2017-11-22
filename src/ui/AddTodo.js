@@ -1,38 +1,40 @@
-import React,{Component} from 'react'
-import {addTodo} from '../actions/index'
+import React, { Component } from 'react'
+import { addTodo } from '../actions/index'
 import { connect } from 'react-redux'
+import { Button, FormGroup, FormControl,ControlLabel, Form } from 'react-bootstrap'
 
+class AddTodo extends Component {
+  constructor(props) {
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
 
-class AddTodo extends Component{
+  handleSubmit(e) {
+    e.preventDefault()
 
-    constructor(props){
-        super(props)                      
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }   
+    let inputValue = this.input.value
+    console.log('inputValue->', inputValue)
 
-    handleSubmit(e){
-        e.preventDefault()        
-        let inputValue = this.input.value
-        console.log('inputValue->',inputValue)
+    this.props.dispatch(addTodo({ text: inputValue, completed: false }))
 
-        this.props.dispatch(addTodo({text:inputValue, completed:false}))
-        
-        this.input.value = ''
-        return true
-    }
+    this.input.value = ''
+    return true
+  }
 
-    render(){
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" maxLength="30" ref={(input) => this.input = input}/>
-                    <button type="submit">Add Todo</button>
-                </form>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <Form onSubmit={this.handleSubmit} inline>
+          <FormGroup>
+              <ControlLabel>ToDo:</ControlLabel>
+              <FormControl type="text" maxLength="30" inputRef={(input) => this.input = input}/>                                        
+          </FormGroup>
+          <Button bsStyle="primary" type="submit">Add Todo</Button>
+        </Form>
+      </div>
+    )
+  }
 }
 
 AddTodo = connect()(AddTodo)
-
 export default AddTodo

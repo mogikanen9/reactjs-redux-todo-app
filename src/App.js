@@ -1,47 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
 import AddTodo from './ui/AddTodo'
 import VisibleTodoList from './containers/VisibleTodoList'
 import TodoFilter from './ui/TodoFilter'
 
-
-import { ADD_TODO, DELETE_TODO} from './constants/ActionTypes'
-
-class App extends Component {
-
-  constructor(props){
-    super(props)
-    this.addToDoItem = this.addToDoItem.bind(this)
-  }
-
-  addToDoItem(newItemValue){
-    console.log('addToDoItem->',newItemValue)
-    //store.dispatch({type: ADD_TODO,item:{text:newItemValue,completed:false,id:100}})
-  }
-
-  deleteToDoItem(newItemValue){
-    console.log('addToDoItem->',newItemValue)
-    //store.dispatch({type: DELETE_TODO,item:newItemValue})
-  }
-
-
+export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <div className="App-intro">
-          <AddTodo doOnSubmit={this.addToDoItem}/>
-          <VisibleTodoList/>
-          <TodoFilter />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-4"></div>
+          <div className="col-md-4"><h3>Welcome to TodoApp</h3></div>
+          <div className="col-md-4"></div>
+        </div>
+        <div className="row">
+          <div className="col-md-4"></div>
+          <div className="col-md-4">
+            <AddTodo />
+            <VisibleTodoList />
+            <TodoFilter />
+          </div>
+          <div className="col-md-4"></div>
         </div>
       </div>
-    );
+    )
   }
 }
-
-export default App
