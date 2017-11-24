@@ -3,7 +3,7 @@ import './App.css'
 
 import AddTodo from './ui/AddTodo'
 import VisibleTodoList from './containers/VisibleTodoList'
-import TodoFilter from './ui/TodoFilter'
+import VisibleTodoFilter from './containers/VisibleTodoFilter'
 
 export default class App extends Component {
   render() {
@@ -19,7 +19,7 @@ export default class App extends Component {
           <div className="col-md-4">
             <AddTodo />
             <VisibleTodoList />
-            <TodoFilter />
+            <VisibleTodoFilter />
           </div>
           <div className="col-md-4"></div>
         </div>

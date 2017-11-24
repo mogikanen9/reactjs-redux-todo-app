@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, UPDATE_TODO } from '../constants/ActionTypes'
+import { ADD_TODO, DELETE_TODO, UPDATE_TODO, SET_VISIBILITY_FILTER } from '../constants/ActionTypes'
 
 const initialState = [
   {
